@@ -1,9 +1,13 @@
 export default `
+
+  scalar Date
+  
   type Post {
     _id: ID!
     handle: String!
     imgUrl: String!
     description: String
+    createdAt: Date
     likes: [String]
   }
 

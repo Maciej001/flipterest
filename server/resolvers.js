@@ -1,4 +1,9 @@
+import dateType from 'graphql-date';
+
 const resolvers = {
+
+  Date: dateType,
+
   Query: {
     getPosts(obj, args, context) {
       console.log(`getPosts for handle: ${args.handle}`);
