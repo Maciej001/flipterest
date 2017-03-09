@@ -9,10 +9,12 @@ const Feed = (props)=>{
     {_id: 3, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/rainey.jpg', createdAt: new Date(), likes: ['user-1', 'user-2', 'user-3'], description: 'New image'},
   ]
   return (
+    <div className="thumbnail">
     <div className="Feed">
       <FeedHeader title="Feed Header"/>
       <PostsFeed posts={posts} />
     </div>
+  </div>
   )
 }
 
