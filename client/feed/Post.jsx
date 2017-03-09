@@ -1,11 +1,31 @@
 import React from 'react';
+import moment from 'moment'
+
+const AuthorInfo = ({handle, createdAt}) => (
+  <h2 className="AuthorInfo">
+    <span className="bold">{handle}</span>
+    {` on `}
+    <span>{moment(createdAt).fromNow()}</span>
+  </h2>
+)
+
+const Likes = ({likesNumber}) => (
+  <div className="Likes">
+    { likesNumber > 0
+      ? <i className="fa fa-heart likes-red" aria-hidden="true">{` ${likesNumber}`}</i>
+      : <i className="fa fa-heart-o likes-grey" aria-hidden="true"></i>
+    }
+  </div>
+)
 
 const Post = ({post}) => (
   <div className="Post">
-    <img src={post.imgUrl} alt=""/>
+    <div className="img-wrapper">
+      <img src={post.imgUrl} alt=""/>
+    </div>
     <div className="PostHeader">
-      <span className="Author">{`Created by @${post.handle} on ${post.createdAt}`}</span>
-      <span className="Likes">{`Likes (${post.likes.length})`}</span>
+      <AuthorInfo handle={post.handle} createdAt={post.createdAt}/>
+      <Likes likesNumber={post.likes.length}/>
     </div>
     <p>{post.description}</p>
   </div>

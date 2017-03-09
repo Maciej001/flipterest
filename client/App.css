@@ -1,8 +1,13 @@
-*, body, html {
+*, body, html, i {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   font-size: 1rem;
   margin: 0;
   padding: 0;
   color: #555;
+}
+
+.bold {
+  font-weight: bold !important;
+  color: #333;
 }

@@ -1,0 +1,10 @@
+.FeedHeader {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
+.FeedHeader h1 {
+  font-size: 1.2rem;
+  color: #888;
+}

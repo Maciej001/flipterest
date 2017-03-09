@@ -4,7 +4,7 @@ import PostsFeed from './PostsFeed.jsx';
 
 const Feed = (props)=>{
   const posts = [
-    {_id: 1, handle: 'user-1', imgUrl: 'https://s3.amazonaws.com/flipterest/fernando.jpg', createdAt: new Date(), likes: ['user-2', 'user-3'], description: 'Fernando presenting his project'},
+    {_id: 1, handle: 'user-1', imgUrl: 'https://s3.amazonaws.com/flipterest/fernando.jpg', createdAt: new Date(), likes: [], description: 'Fernando presenting his project'},
     {_id: 2, handle: 'user-2', imgUrl: 'https://s3.amazonaws.com/flipterest/lukasz.jpg', createdAt: new Date(), likes: ['user-1', 'user-3'], description: 'Lukasz'},
     {_id: 3, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/rainey.jpg', createdAt: new Date(), likes: ['user-1', 'user-2', 'user-3'], description: 'Rainey'},
     {_id: 4, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/tarkan.jpg', createdAt: new Date(), likes: ['user-1', 'user-2', 'user-3'], description: 'Tarkan'},
