@@ -1,0 +1,9 @@
+.PostFeed {
+  display: flex;
+  background: #eee;
+}
+
+.PostFeed .Post {
+  flex: 1 0 auto;
+  justify-content: space-between;
+}
