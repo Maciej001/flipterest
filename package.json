@@ -5,7 +5,19 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "^6.20.0",
-    "meteor-node-stubs": "~0.2.4"
+    "babel-runtime": "^6.23.0",
+    "meteor-node-stubs": "~0.2.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.23.0",
+    "eslint": "^3.17.1",
+    "eslint-config-react-app": "^0.6.1",
+    "eslint-plugin-flowtype": "^2.30.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
   }
 }
