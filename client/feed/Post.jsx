@@ -1,9 +1,12 @@
 import React from 'react';
 import moment from 'moment'
+import { Link } from 'react-router';
 
 const AuthorInfo = ({handle, createdAt}) => (
   <h2 className="AuthorInfo">
-    <span className="bold">{handle}</span>
+    <Link to={`/profile/${handle}`}>
+      <span className="bold">{handle}</span>
+    </Link>
     {` on `}
     <span>{moment(createdAt).fromNow()}</span>
   </h2>
