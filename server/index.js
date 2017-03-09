@@ -18,13 +18,9 @@ const posts = [
 ]
 
 Meteor.startup(() => {
-  console.log("starting")
   if (Meteor.isServer) {
-    console.log("Server");
     const DBPosts = Posts.find().fetch()
-    console.log(`DBPosts.length`, DBPosts.length);
     if (!DBPosts.length) {
-      console.log("posts 0 length")
       posts.forEach( post => {
         Posts.insert(post);
       })

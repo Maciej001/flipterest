@@ -5,11 +5,10 @@ export default `
     imgUrl: String!
     description: String
     likes: [String]
-    createdAt: String!
   }
 
   type Query {
-    getPosts : [Post]
+    getPosts(handle: String) : [Post]
   }
 
   type Mutation {

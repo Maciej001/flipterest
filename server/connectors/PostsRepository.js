@@ -5,7 +5,7 @@ class PostsRepository {
     if (!!handle)
       return Posts.find({handle}).fetch();
     else
-      return Posts.find({}, {limit: 12});
+      return Posts.find({}, {limit: 12}).fetch();
   }
   createPost(post) {
     return Posts.insert({ post });
