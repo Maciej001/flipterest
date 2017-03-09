@@ -2,21 +2,22 @@
   "name": "flipterest",
   "private": true,
   "scripts": {
+    "prettier": "prettier --write \"client/*.jsx\" --single-quote=true --trailing-comma=es5 --print-width=100",
     "start": "meteor run"
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "eslint-plugin-prettier": "^2.0.1",
     "fontawesome": "^4.7.2",
     "meteor-node-stubs": "~0.2.4",
     "moment": "^2.17.1",
-    "prettier": "^0.21.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-fontawesome": "^1.5.0",
     "react-router": "^3.0.2"
   },
   "devDependencies": {
+    "eslint-plugin-prettier": "^2.0.1",
+    "prettier": "^0.21.0",
     "babel-plugin-transform-class-properties": "^6.23.0",
     "eslint": "^3.17.1",
     "babel-eslint": "^7.1.1",

@@ -7,10 +7,9 @@ const Routes = () => (
   <Router history={browserHistory}>
     <Route component={App}>
       <Route path="/" component={Feed} />
-      <Route path="/profile/:handle" component={Feed} />
-    </Route>
+      <Route path="/profile/:handle" component={Feed} /></Route>
   </Router>
-)
+);
 
 export default Routes;
 
