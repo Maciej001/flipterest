@@ -1,9 +1,9 @@
 import React from "react" ;
 import Feed from './feed/Feed.jsx';
 
-const App = ()=>(
+const App = (props)=>(
   <div className="App">
-    <Feed />
+    { props.children }
   </div>
 )
 export default App;
