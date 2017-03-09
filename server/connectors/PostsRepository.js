@@ -2,6 +2,7 @@ import { Posts } from '../collections';
 
 class PostsRepository {
   getPosts(handle) {
+    console.log(`getPosts for handle: ${handle}`);
     if (!!handle)
       return Posts.find({handle}).fetch();
     else

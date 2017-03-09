@@ -14,7 +14,7 @@ const Feed = (props)=>{
     title = 'Recenty added';
   }
 
-  if ( this.props.data.loading ) {
+  if ( props.data.loading ) {
     return <div>Loading...</div>
   }
 
@@ -23,7 +23,7 @@ const Feed = (props)=>{
     <div className="thumbnail">
     <div className="Feed">
       <FeedHeader title={ title }/>
-      <PostsFeed posts={posts} />
+      <PostsFeed posts={props.data.getPosts} />
     </div>
   </div>
   )
@@ -37,7 +37,6 @@ const query = gql`
       imgUrl
       description
       likes
-      text
     }
   }
 `

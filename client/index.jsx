@@ -13,6 +13,6 @@ Meteor.startup(() => {
     <ApolloProvider client={apolloClient}>
       <Routes />
     </ApolloProvider>,
-    document.getElementById('root'),
+    document.getElementById('root')
   );
 });
