@@ -1,9 +1,16 @@
 .Post {
+  display: inline-block;
   background: white;
   border: 1px solid #bbb;
   border-radius: 10px;
   padding: 20px;
+  margin-bottom: 20px;
   margin-right: 20px;
+  width: calc((100% - 40px)/3);
+}
+
+.Post:nth-child(3n) {
+  margin-right: 0;
 }
 
 .Post img {
