@@ -10,7 +10,7 @@ const Feed = (props)=>{
   ]
   return (
     <div className="Feed">
-      <FeedHeader title="Feed Header"/>
+      <FeedHeader title="Recently added"/>
       <PostsFeed posts={posts} />
     </div>
   )
