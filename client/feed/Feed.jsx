@@ -2,13 +2,16 @@ import React from "react" ;
 import FeedHeader from './FeedHeader.jsx';
 import PostsFeed from './PostsFeed.jsx';
 
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
 const Feed = (props)=>{
   let posts = [];
   let title = '';
   if(props.params.handle) {
     title = props.params.handle;
     posts = [
-      {_id: 3, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/rainey.jpg', createdAt: new Date(), likes: [], description: 'Rainey'},
+      {_id: 3, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/rainey.jpg', createdAt: new Date(2017,2,1), likes: [], description: 'Rainey'},
       {_id: 4, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/tarkan.jpg', createdAt: new Date(), likes: ['user-1', 'user-2', 'user-3'], description: 'Tarkan'},
       {_id: 5, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/sacha1.jpg', createdAt: new Date(), likes: ['user-1', 'user-2', 'user-3'], description: 'Sacha'},
       {_id: 6, handle: 'user-3', imgUrl: 'https://s3.amazonaws.com/flipterest/sacha2.jpg', createdAt: new Date(), likes: ['user-1', 'user-2', 'user-3'], description: 'Sacha 2'},

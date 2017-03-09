@@ -1,5 +1,4 @@
 import React from "react" ;
-import Feed from './feed/Feed.jsx';
 
 const App = (props)=>(
   <div className="App">
