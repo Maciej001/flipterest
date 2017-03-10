@@ -20,7 +20,11 @@ export default `
       handle: String
       description: String
       base64ImageData: Base64EncodedImage!
-    ): Post
+    ): Post,
+    follow (
+      followee: String!
+      follow: Boolean!
+    ): Boolean
 
   }
   schema {
