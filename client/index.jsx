@@ -5,11 +5,11 @@ import Routes from './Routes.jsx';
 
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import { meteorClientConfig } from 'meteor/apollo';
 
-const apolloClient = new ApolloClient();
+const apolloClient = new ApolloClient(meteorClientConfig());
 
 Meteor.startup(() => {
-  
   render(
     <ApolloProvider client={apolloClient}>
       <Routes />

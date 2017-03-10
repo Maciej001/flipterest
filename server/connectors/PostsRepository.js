@@ -31,7 +31,7 @@ class PostsRepository {
     if (!!handle)
       return Posts.find({handle}).fetch();
     else
-      return Posts.find({}, {limit: 12}).fetch();
+      return Posts.find({}, {sort: {createdAt: -1}}, {limit: 12}).fetch();
   }
   createPost(post) {
     const id = Posts.insert({ ...post, createdAt: new Date(), likes: [] });
