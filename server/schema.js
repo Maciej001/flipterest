@@ -27,6 +27,11 @@ export default `
       postId: String!
     ): Post!
 
+    follow (
+      followee: String!
+      follow: Boolean!
+    ): Boolean
+
   }
   schema {
     query: Query

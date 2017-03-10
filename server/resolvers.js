@@ -27,11 +27,24 @@ const resolvers = {
             imgUrl: url,
           })
         })
-
     },
+
     addLike(obj, args, context) {
       const user = context.user;
       return context.Posts.addLike(user._id, args.postId);
+
+    follow(obj, args, context) {
+      const user = context.user || {};
+      const handle = user.handle;
+      if(!handle) {
+        console.log('No follower passed');
+        return false;
+      }
+      if(!args.followee) {
+        console.log('No followee passed');
+        return false;
+      }
+      return context.Users.follow(args.followee, user.handle, args.follow);
     }
   },
 };

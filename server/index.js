@@ -5,6 +5,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 import schema from './schema';
 import resolvers from './resolvers';
 import PostsRepository from './connectors/PostsRepository';
+import UsersRepository from './connectors/UsersRepository';
 import {Posts} from './collections'
 import bodyParser from 'body-parser';
 
@@ -40,6 +41,7 @@ createApolloServer({
   schema: executableSchema,
   context: {
     Posts: new PostsRepository(),
+    Users: new UsersRepository(),
   }
 },{
   configServer: expressServer => {

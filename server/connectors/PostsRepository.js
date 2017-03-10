@@ -1,6 +1,11 @@
 import { Meteor } from 'meteor/meteor'
 import { Posts } from '../collections';
 import cloudinary from 'cloudinary';
+<<<<<<< HEAD
+=======
+import { Meteor } from 'meteor/meteor';
+
+>>>>>>> 3a9927af750faa015b9920af93b8b06a5857b7a6
 
 class PostsRepository {
   constructor() {
@@ -31,6 +36,7 @@ class PostsRepository {
     else
       return Posts.find({}, {sort: {createdAt: -1}}, {limit: 12}).fetch();
   }
+
   createPost(post) {
     const id = Posts.insert({ ...post, createdAt: new Date(), likes: [] });
     return Posts.findOne({_id: id});
@@ -45,6 +51,26 @@ class PostsRepository {
     }
     return post;
   }
+
+  /*
+  follow(followee, follower, follow) {
+    const followeeUser = Meteor.users.findOne({ handle : followee });
+    const followerUser = Meteor.users.findOne({ handle : follower });
+    try {
+      if(follow) {
+        Meteor.users.update({_id: followeeUser._id}, {$addToSet: {follower: follower}});
+        Meteor.users.update({_id: followerUser._id}, {$addToSet: {followee: followee}});
+      } else {
+        Meteor.users.update({_id: followeeUser._id}, {$pull: {follower: follower}});
+        Meteor.users.update({_id: followerUser._id}, {$pull: {followee: followee}});
+      }
+      return true;
+    } catch(error) {
+      console.log(error);
+      return false;
+    }
+  }
+  */
 }
 
 export default PostsRepository
