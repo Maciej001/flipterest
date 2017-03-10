@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor'
+import { Accounts } from 'meteor/accounts-base';
 import { createApolloServer } from 'meteor/apollo';
 import { makeExecutableSchema } from 'graphql-tools';
 import schema from './schema';
@@ -19,6 +20,11 @@ const posts = [
 
 Meteor.startup(() => {
   if (Meteor.isServer) {
+    /*
+    Accounts.ui.config({
+      passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
+    });
+    */
     const DBPosts = Posts.find().fetch()
     if (!DBPosts.length) {
       posts.forEach( post => {
@@ -38,4 +44,11 @@ createApolloServer({
   context: {
     Posts: new PostsRepository(),
   }
+});
+
+Accounts.onCreateUser((options, user) => {
+  const email = user.emails[0].address;
+  const handle = email.substring(0, email.indexOf('@'));
+  console.log('handle: ', handle);
+  return Object.assign({}, user, { handle });
 });
