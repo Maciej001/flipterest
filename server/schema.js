@@ -1,7 +1,7 @@
 export default `
-
+  scalar Base64EncodedImage
   scalar Date
-  
+
   type Post {
     _id: ID!
     handle: String!
