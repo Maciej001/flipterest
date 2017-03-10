@@ -1,7 +1,7 @@
 export default `
 
   scalar Date
-  
+
   type Post {
     _id: ID!
     handle: String!
@@ -17,7 +17,6 @@ export default `
 
   type Mutation {
     createPost (
-      handle: String!
       imgUrl: String!
       description: String
     ): Post

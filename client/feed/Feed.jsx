@@ -6,7 +6,6 @@ import gql from 'graphql-tag';
 
 const Feed = (props)=>{
   console.log(`props`, props);
-  let posts = [];
   let title = '';
   if(props.params.handle) {
     title = `Posts by ${props.params.handle}`;
