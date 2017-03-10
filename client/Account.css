@@ -42,6 +42,10 @@ input#login-email, input#login-password {
   cursor: pointer;
 }
 
+.login-close-text-clear {
+  margin-bottom: 20px;
+}
+
 .login-close-text:hover {
   box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
 }

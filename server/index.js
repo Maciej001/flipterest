@@ -50,6 +50,5 @@ createApolloServer({
 Accounts.onCreateUser((options, user) => {
   const email = user.emails[0].address;
   const handle = email.substring(0, email.indexOf('@'));
-  console.log('handle: ', handle);
   return Object.assign({}, user, { handle });
 });

@@ -20,7 +20,12 @@ export default `
       handle: String
       description: String
       base64ImageData: Base64EncodedImage!
-    ): Post
+    ): Post!
+
+    addLike (
+      userId: String!
+      postId: String!
+    ): Post!
 
   }
   schema {

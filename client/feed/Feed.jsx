@@ -5,7 +5,6 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 const Feed = (props)=>{
-  console.log(`props`, props);
   let title = '';
   if(props.params.handle) {
     title = `Posts by ${props.params.handle}`;

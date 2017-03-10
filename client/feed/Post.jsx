@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment'
 import { Link } from 'react-router';
+import Likes from './Likes.jsx'
 
 const AuthorInfo = ({handle, createdAt}) => (
   <h2 className="AuthorInfo">
@@ -10,15 +11,6 @@ const AuthorInfo = ({handle, createdAt}) => (
     {` on `}
     <span>{moment(createdAt).fromNow()}</span>
   </h2>
-)
-
-const Likes = ({likesNumber}) => (
-  <div className="Likes">
-    { likesNumber > 0
-      ? <i className="fa fa-heart likes-red" aria-hidden="true">{` ${likesNumber}`}</i>
-      : <i className="fa fa-heart-o likes-grey" aria-hidden="true"></i>
-    }
-  </div>
 )
 
 const Post = ({post}) => (
