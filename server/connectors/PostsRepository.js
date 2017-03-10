@@ -1,11 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { Posts } from '../collections';
 import cloudinary from 'cloudinary';
-<<<<<<< HEAD
-=======
-import { Meteor } from 'meteor/meteor';
-
->>>>>>> 3a9927af750faa015b9920af93b8b06a5857b7a6
 
 class PostsRepository {
   constructor() {

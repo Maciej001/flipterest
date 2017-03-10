@@ -32,6 +32,7 @@ const resolvers = {
     addLike(obj, args, context) {
       const user = context.user;
       return context.Posts.addLike(user._id, args.postId);
+    },
 
     follow(obj, args, context) {
       const user = context.user || {};
