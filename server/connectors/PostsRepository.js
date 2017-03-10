@@ -29,7 +29,7 @@ class PostsRepository {
   getPosts(handle) {
     //console.log(`getPosts for handle: ${handle}`);
     if (!!handle)
-      return Posts.find({handle}).fetch();
+      return Posts.find({handle}, {sort: {createdAt: -1}}).fetch();
     else
       return Posts.find({}, {sort: {createdAt: -1}}, {limit: 12}).fetch();
   }
