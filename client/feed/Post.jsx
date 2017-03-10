@@ -20,7 +20,7 @@ const Post = ({post}) => (
     </div>
     <div className="PostHeader">
       <AuthorInfo handle={post.handle} createdAt={post.createdAt}/>
-      <Likes likesNumber={post.likes.length}/>
+      <Likes likesNumber={post.likes.length} postId={post._id}/>
     </div>
     <p>{post.description}</p>
   </div>
