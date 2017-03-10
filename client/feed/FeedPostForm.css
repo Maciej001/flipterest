@@ -21,7 +21,8 @@
 }
 
 .FeedPostForm .ImageInput::-webkit-file-upload-button {
-  visibility: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 .FeedPostForm .ImageInput::before {
   content: 'Select Image';
@@ -85,4 +86,11 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.IsUploading {
+  padding-top: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2980B9;
 }

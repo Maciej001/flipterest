@@ -17,8 +17,9 @@ export default `
 
   type Mutation {
     createPost (
-      imgUrl: String!
+      handle: String
       description: String
+      base64ImageData: Base64EncodedImage!
     ): Post
 
   }

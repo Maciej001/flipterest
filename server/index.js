@@ -5,6 +5,8 @@ import schema from './schema';
 import resolvers from './resolvers';
 import PostsRepository from './connectors/PostsRepository';
 import {Posts} from './collections'
+import bodyParser from 'body-parser';
+
 
 const posts = [
   {handle: 'user-1', imgUrl: 'https://s3.amazonaws.com/flipterest/fernando.jpg', createdAt: new Date(), likes: [], description: 'Fernando presenting his project'},
@@ -19,6 +21,7 @@ const posts = [
 
 Meteor.startup(() => {
   if (Meteor.isServer) {
+
     const DBPosts = Posts.find().fetch()
     if (!DBPosts.length) {
       posts.forEach( post => {
@@ -37,5 +40,9 @@ createApolloServer({
   schema: executableSchema,
   context: {
     Posts: new PostsRepository(),
+  }
+},{
+  configServer: expressServer => {
+    expressServer.use(bodyParser.json({limit: '5mb'}));
   }
 });

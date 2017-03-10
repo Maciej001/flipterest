@@ -9,6 +9,7 @@ import { ApolloProvider } from 'react-apollo';
 const apolloClient = new ApolloClient();
 
 Meteor.startup(() => {
+  
   render(
     <ApolloProvider client={apolloClient}>
       <Routes />
