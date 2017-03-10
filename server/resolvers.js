@@ -1,7 +1,6 @@
 const resolvers = {
   Query: {
     getPosts(obj, args, context) {
-      console.log(`getPosts for handle: ${args.handle}`);
       return context.Posts.getPosts(args.handle)
     },
   },
