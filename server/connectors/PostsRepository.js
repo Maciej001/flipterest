@@ -9,7 +9,8 @@ class PostsRepository {
       return Posts.find({}, {limit: 12}).fetch();
   }
   createPost(post) {
-    return Posts.insert({ post });
+    const postWithDate = {...post, createdAt: new Date()};
+    return Posts.insert({ postWithDate });
   }
 }
 
