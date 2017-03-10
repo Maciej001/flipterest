@@ -1,0 +1,88 @@
+.Account {
+  position: relative;
+}
+
+.Account label {
+  color: #aaa;
+  font-size: 1rem;
+}
+
+input#login-email, input#login-password {
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.login-link-text {
+  color: #2980B9;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#login-dropdown-list {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #fafafa;
+  border: 3px solid #ddd;
+  border-radius: 5px;
+  padding: 30px 20px;
+}
+
+.login-close-text {
+  font-size: 1rem;
+  color: rgba(255,255,255, 0.85);
+  background: #993228;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  padding: 7px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-close-text:hover {
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+.login-form {
+  margin-top: 20px;
+}
+
+.login-form > div {
+  margin-bottom: 20px;
+}
+
+.login-form > div.additional-link-container {
+  margin-bottom: 5px;
+}
+
+.login-form > div.additional-link-container a {
+  color: #2980B9;
+}
+
+.login-form > div.additional-link-container a:hover {
+  color: #2980B9;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#login-email {
+  float: right;
+}
+
+.login-button {
+  display: inline-block;
+  font-size: 1rem;
+  color: rgba(255,255,255, 0.85);
+  background: #2980B9;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  padding: 7px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.message .error-message {
+  color: #993228;
+}
