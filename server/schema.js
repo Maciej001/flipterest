@@ -17,7 +17,6 @@ export default `
 
   type Mutation {
     createPost (
-      handle: String!
       imgUrl: String!
       description: String
     ): Post

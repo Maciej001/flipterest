@@ -6,7 +6,6 @@ import gql from 'graphql-tag';
 
 const Feed = (props)=>{
   console.log(`props`, props);
-  let posts = [];
   let title = '';
   if(props.params.handle) {
     title = `Posts by ${props.params.handle}`;
@@ -36,6 +35,7 @@ const query = gql`
       handle
       imgUrl
       description
+      createdAt
       likes
     }
   }
@@ -43,7 +43,7 @@ const query = gql`
 export default graphql(query, {
   options: ownProps => ({
       variables: { handle: ownProps.params.handle},
-      pollInterval: 1000,
+      //pollInterval: 1000,
     })
   }
 )(Feed);
