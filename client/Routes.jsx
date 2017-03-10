@@ -9,26 +9,9 @@ const Routes = () => (
     <Route component={App}>
       <Route path="/" component={Feed} />
       <Route path="/form" component={FeedPostForm} />
-      <Route path="/profile/:handle" component={Feed} /></Route>
+      <Route path="/profile/:handle" component={Feed} />
+    </Route>
   </Router>
 );
 
 export default Routes;
-
-
-
-/*
-If you use this syntax you have to include it in index.jsx as follows:
-Meteor.startup(() => {
-  render(
-    Routes,
-    document.getElementById('root'),
-  );
-});
-
-export default <Router history={browserHistory}>
-  <Route component={App}>
-    <Route path="/" component={Feed} />
-  </Route>
-</Router>;
-*/

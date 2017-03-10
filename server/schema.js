@@ -11,8 +11,22 @@ export default `
     likes: [String]
   }
 
+  type Email {
+      address: String!
+      verified: Boolean!
+  }
+
+  type User {
+    _id: ID!
+    handle: String!
+    followees: [String]
+    followers: [String]
+    emails: [Email]
+  }
+
   type Query {
-    getPosts(handle: String) : [Post]
+    getPosts(handle: String) : [Post],
+    getUser (handle: String!): User
   }
 
   type Mutation {
@@ -25,8 +39,8 @@ export default `
       followee: String!
       follow: Boolean!
     ): Boolean
-
   }
+
   schema {
     query: Query
     mutation: Mutation

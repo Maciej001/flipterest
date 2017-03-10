@@ -5,8 +5,8 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 const Feed = (props)=>{
-  console.log(`props`, props);
   let title = '';
+  let followee = props.params.handle;
   if(props.params.handle) {
     title = `Posts by ${props.params.handle}`;
   } else {
@@ -21,7 +21,7 @@ const Feed = (props)=>{
   return (
     <div className="thumbnail">
     <div className="Feed">
-      <FeedHeader title={ title }/>
+      <FeedHeader title={ title } followee={ followee } />
       <PostsFeed posts={props.data.getPosts} />
     </div>
   </div>

@@ -9,12 +9,12 @@ class UsersRepository {
     try {
       if(follow) {
         // follow
-        Meteor.users.update({_id: followeeUser._id}, {$addToSet: {follower: follower}});
-        Meteor.users.update({_id: followerUser._id}, {$addToSet: {followee: followee}});
+        Meteor.users.update({_id: followeeUser._id}, {$addToSet: {followers: follower}});
+        Meteor.users.update({_id: followerUser._id}, {$addToSet: {followees: followee}});
       } else {
         // unfollow
-        Meteor.users.update({_id: followeeUser._id}, {$pull: {follower: follower}});
-        Meteor.users.update({_id: followerUser._id}, {$pull: {followee: followee}});
+        Meteor.users.update({_id: followeeUser._id}, {$pull: {followers: follower}});
+        Meteor.users.update({_id: followerUser._id}, {$pull: {followees: followee}});
       }
       return true;
     } catch(error) {
@@ -22,6 +22,12 @@ class UsersRepository {
       return false;
     }
   }
+
+  getUser(handle) {
+    console.log(`Called getUser for handle: ${handle}`);
+    return Meteor.users.findOne({handle});
+  }
+
 }
 
 export default UsersRepository;

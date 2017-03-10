@@ -12,6 +12,9 @@ const resolvers = {
       const posts = context.Posts.getPosts(args.handle);
       return posts;
     },
+    getUser(obj, args, context) {
+      return context.Users.getUser(args.handle);
+    }
   },
   Mutation: {
     createPost(obj, args, context) {
