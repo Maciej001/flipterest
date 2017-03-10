@@ -1,3 +1,7 @@
+.Likes i {
+  cursor: pointer;
+}
+
 .likes-red {
   color: #E74C3C;
 }

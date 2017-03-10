@@ -6,7 +6,9 @@ import update from 'immutability-helper';
 
 class Likes extends Component {
   onClick = (e) => {
-    this.props.addLike(Meteor.userId(), this.props.postId)
+    if (!!Meteor.user()) {
+      this.props.addLike(Meteor.userId(), this.props.postId)
+    }
   }
 
   render() {
@@ -39,7 +41,21 @@ export default graphql(mutation, {
             userId,
             postId,
           },
-        });
+          updateQueries: {
+            getPosts: (previousResult, { mutationResult }) => {
+              console.log(`previousResult`, previousResult);
+              console.log(`mutationResult:  ${mutationResult}`);
+              return update(previousResult, {
+                post: {
+                  likes: {
+                    $push: [mutationResult.data.post._id],
+                  },
+                },
+              });
+            },
+          },
+        }
+      );
       },
     };
   },
