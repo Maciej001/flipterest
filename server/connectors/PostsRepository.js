@@ -40,7 +40,7 @@ class PostsRepository {
   addLike(userId, postId) {
     const post = Posts.findOne({_id: postId});
     if ( post.likes.indexOf(userId) === -1 ) {
-      Posts.update( post._id, {
+      Posts.update( {_id: post._id}, {
         $push: { likes: userId }
       })
     }

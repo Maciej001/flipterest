@@ -34,6 +34,7 @@ export default graphql(mutation, {
   props: ({ mutate, ownProps }) => {
     return {
       addLike: (userId, postId) => {
+        console.log('mutating')
         return mutate({
           variables: {
             userId,
