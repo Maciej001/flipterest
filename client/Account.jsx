@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Link } from 'react-router'
 
 class AccountsUIWrapper extends Component {
   componentDidMount() {
@@ -15,7 +16,12 @@ class AccountsUIWrapper extends Component {
 
   render() {
     return (
-      <span ref={node => (this.node = node)} />
+      <div className="RightMenu">
+        { !!Meteor.user() &&
+          <Link to="/form" className="AddPost">Add Post</Link>
+        }
+        <span className="Login" ref={node => (this.node = node)} />
+      </div>
     )
   }
 }

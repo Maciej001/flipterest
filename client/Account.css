@@ -7,12 +7,27 @@
   font-size: 1rem;
 }
 
+.Account span.Login {
+  display: inline-block;
+  height: 100%;
+}
+
+.Account .RightMenu {
+  display: flex;
+  justify-content: space-between;
+}
+
 input#login-email, input#login-password {
   height: 30px;
   border: 1px solid #ddd;
   border-radius: 5px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+#login-buttons {
+  display: inline-block;
+  height: 100%;
 }
 
 .login-link-text {
@@ -89,4 +104,21 @@ input#login-email, input#login-password {
 
 .message .error-message {
   color: #993228;
+}
+
+.AddPost {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1rem;
+  color: rgba(255,255,255, 0.85);
+  background: #2980B9;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  padding: 7px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.AddPost:hover {
+  text-decoration: none;
 }

@@ -33,6 +33,7 @@ class PostsRepository {
   }
 
   createPost(post) {
+    console.log(`post when creating Post`, post);
     const id = Posts.insert({ ...post, createdAt: new Date(), likes: [] });
     return Posts.findOne({_id: id});
   }

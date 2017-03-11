@@ -3,6 +3,8 @@ import {graphql} from 'react-apollo';
 import gql from 'graphql-tag';
 import update from 'immutability-helper';
 
+import { browserHistory } from 'react-router'
+
 import fileToBase64 from '../utils/fileToBase64';
 
 class FeedPostForm extends Component {
@@ -40,6 +42,7 @@ class FeedPostForm extends Component {
     e.preventDefault();
     const { description, base64ImageData } = this.state;
     this.props.submit(description, base64ImageData )
+    browserHistory.push(`/profile/${Meteor.user().handle}`)
   }
 
   render() {
@@ -55,7 +58,7 @@ class FeedPostForm extends Component {
             onChange={this.onChange}
             className="ImageInput"
           />
-          <textarea cols="60" rows="10" className="DescriptionInput"/>
+          <textarea cols="60" rows="10" className="DescriptionInput" onChange={this.onDescriptionChange}/>
           <input className="SubmitButton" type="submit" value="Submit" onClick={this.onSubmit}/>
         </form>
         { isUploading &&
