@@ -26,9 +26,7 @@ class Likes extends Component {
 
 const mutation = gql`
   mutation addLike($userId: String!, $postId:String!){
-    addLike(userId: $userId, postId: $postId) {
-      _id
-    }
+    addLike(userId: $userId, postId: $postId)
   }
 `;
 
@@ -42,16 +40,15 @@ export default graphql(mutation, {
             postId,
           },
           updateQueries: {
-            getPosts: (previousResult, { mutationResult }) => {
-              console.log(`previousResult`, previousResult);
-              console.log(`mutationResult:  ${mutationResult}`);
-              return update(previousResult, {
-                post: {
-                  likes: {
-                    $push: [mutationResult.data.post._id],
-                  },
-                },
-              });
+            postsFeed: (previousResult, { mutationResult }) => {
+              const nextResult = {
+                ...previousResult,
+                getPosts: previousResult.getPosts.map( post => post._id === postId
+                  ? {...post, likes: [...post.likes, mutationResult.data.addLike ]}
+                  : post
+                )
+              }
+              return nextResult;
             },
           },
         }

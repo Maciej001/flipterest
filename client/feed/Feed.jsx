@@ -28,7 +28,7 @@ const Feed = (props)=>{
 }
 
 const query = gql`
-  query postsQuery($handle: String) {
+  query postsFeed($handle: String) {
     getPosts(handle: $handle) {
       _id
       handle
