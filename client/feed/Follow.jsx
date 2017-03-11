@@ -5,42 +5,30 @@ import gql from 'graphql-tag';
 
 class Follow extends React.Component {
 
-  componentDidMount() {
-    console.log('componentDidMount: ', this.props);
-    let isFollowing = false;
-    let followeeUser = this.props.data.getUser;
-    if(followeeUser && followeeUser.followers) {
-      if(followeeUser.followers.contains(Meteor.userId())) {
-        isFollowing = true;
-      }
-    }
-
-    this.state = {
-      followee: this.props.followee,
-      isFollowing: isFollowing,
-    };
+  componentWillReceiveProps(newProps) {
 
   }
 
-  handleClick() {
-    let result = this.props.submit(this.state.followee, !this.state.isFollowing);
-    console.log(`result for follow: ${result}`);
-    if(result) {
-      this.setState({
-        isFollowing: !this.state.isFollowing,
-      })
-    } else {
+  handleClick(e) {
+    e.preventDefault();
+    let result = this.props.submit(this.props.followee, !this.isFollowing());
+    if(!result) {
       console.log('follow failed');
     }
   }
 
+  isFollowing() {
+    return this.props.data.getUser.followers.indexOf(Meteor.user().handle) > -1;
+  }
+
   render() {
-    if(!this.state || !this.state.followee) {
-      return null;
+    if(this.props.data.loading || !Meteor.user()) {
+      return <div>Loading...</div>
     }
+    console.log('render isFollowing: ', this.isFollowing());
     return (
-      <a href="#" onClick={this.handleClick}>
-        {this.state.isFollowing ? 'UnFollow' : 'Follow'}
+      <a href="#" onClick={this.handleClick.bind(this)}>
+        {this.isFollowing() ? 'UnFollow' : 'Follow'}
       </a>
     );
   }
@@ -48,8 +36,10 @@ class Follow extends React.Component {
 }
 
 const query = gql`
-  query getUser($followee: String) {
+  query getUser($followee: String!) {
     getUser(handle: $followee) {
+      _id
+      handle
       followers
     }
   }
@@ -61,24 +51,36 @@ const mutation = gql`
   }
 `;
 
-export default graphql(mutation, {
+const withMutation = graphql(mutation, {
   props: ({ mutate, ownProps }) => {
     return {
       submit: (followee, follow) => {
         return mutate({
           variables: {
-            followee: this.state.followee,
-            follow: !this.state.isFollowing,
+            followee: followee,
+            follow: follow,
+          },
+          updateQueries: {
+            getUser: (previousResult, { mutationResult }) => {
+              console.log(`previousResult`, previousResult);
+              console.log('mutationResult: ', mutationResult);
+              return previousResult;
+            },
           },
         });
       },
     };
   },
-}, query, {
+});
+
+
+const withQuery = graphql(query, {
   options: ownProps => ({
       variables: {
-        followee: this.props.followee,
+        followee: ownProps.followee,
       },
     })
-}
-)(Follow);
+  }
+);
+
+export default withMutation(withQuery(Follow));

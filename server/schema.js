@@ -26,7 +26,7 @@ export default `
 
   type Query {
     getPosts(handle: String) : [Post],
-    getUser (handle: String!): User
+    getUser(handle: String!): User
   }
 
   type Mutation {

@@ -29,7 +29,15 @@ Meteor.startup(() => {
         Posts.insert(post);
       })
     }
+    Meteor.publish(null, function() {
+      return Meteor.users.find({_id: this.userId}, {fields: {handle: 1}});
+    });
   }
+
+  if(Meteor.isClient) {
+    Meteor.subscribe('user');
+  }
+
 })
 
 const executableSchema = makeExecutableSchema({
