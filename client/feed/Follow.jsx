@@ -18,11 +18,12 @@ class Follow extends React.Component {
   }
 
   isFollowing() {
-    return this.props.data.getUser.followers.indexOf(Meteor.user().handle) > -1;
+    return !!this.props.data.getUser.followers && this.props.data.getUser.followers.indexOf(Meteor.user().handle) > -1;
   }
 
   render() {
-    if(!this.props.followee) {
+    console.log(`this.props`, this.props);
+    if(!this.props.data.getUser) {
       return null;
     }
     if(this.props.data.loading || !Meteor.user()) {
