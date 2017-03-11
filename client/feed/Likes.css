@@ -1,0 +1,16 @@
+.Likes i {
+  cursor: pointer;
+}
+
+.likes-red {
+  color: #E74C3C;
+}
+
+.likes-grey {
+  color: #999;
+}
+
+.likes-grey:hover {
+  color: #E74C3C;
+  cursor: pointer;
+}

@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 import dateType from 'graphql-date';
 import Base64EncodedImage from './base64EncodedImageType'
 
@@ -8,7 +7,6 @@ const resolvers = {
 
   Query: {
     getPosts(obj, args, context) {
-      //console.log(`getPosts for handle: ${args.handle}`);
       const posts = context.Posts.getPosts(args.handle);
       return posts;
     },
@@ -33,6 +31,12 @@ const resolvers = {
           })
         })
     },
+
+    addLike(obj, args, context) {
+      const user = context.user;
+      return context.Posts.addLike(user._id, args.postId);
+    },
+
     follow(obj, args, context) {
       const user = context.user || {};
       const handle = user.handle;

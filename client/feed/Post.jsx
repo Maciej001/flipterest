@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment'
 import { Link } from 'react-router';
+import Likes from './Likes.jsx'
 
 const AuthorInfo = ({handle, createdAt}) => (
   <h2 className="AuthorInfo">
@@ -12,15 +13,6 @@ const AuthorInfo = ({handle, createdAt}) => (
   </h2>
 )
 
-const Likes = ({likesNumber}) => (
-  <div className="Likes">
-    { likesNumber > 0
-      ? <i className="fa fa-heart likes-red" aria-hidden="true">{` ${likesNumber}`}</i>
-      : <i className="fa fa-heart-o likes-grey" aria-hidden="true"></i>
-    }
-  </div>
-)
-
 const Post = ({post}) => (
   <div className="Post">
     <div className="img-wrapper">
@@ -28,7 +20,7 @@ const Post = ({post}) => (
     </div>
     <div className="PostHeader">
       <AuthorInfo handle={post.handle} createdAt={post.createdAt}/>
-      <Likes likesNumber={post.likes.length}/>
+      <Likes likesNumber={post.likes.length} postId={post._id}/>
     </div>
     <p>{post.description}</p>
   </div>

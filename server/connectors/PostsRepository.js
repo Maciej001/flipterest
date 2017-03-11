@@ -1,7 +1,6 @@
+import { Meteor } from 'meteor/meteor'
 import { Posts } from '../collections';
 import cloudinary from 'cloudinary';
-import { Meteor } from 'meteor/meteor';
-
 
 class PostsRepository {
   constructor() {
@@ -27,7 +26,6 @@ class PostsRepository {
   }
 
   getPosts(handle) {
-    //console.log(`getPosts for handle: ${handle}`);
     if (!!handle)
       return Posts.find({handle}, {sort: {createdAt: -1}}).fetch();
     else
@@ -37,6 +35,16 @@ class PostsRepository {
   createPost(post) {
     const id = Posts.insert({ ...post, createdAt: new Date(), likes: [] });
     return Posts.findOne({_id: id});
+  }
+
+  addLike(userId, postId) {
+    const post = Posts.findOne({_id: postId});
+    if ( post.likes.indexOf(userId) === -1 ) {
+      Posts.update( post._id, {
+        $push: { likes: userId }
+      })
+    }
+    return post;
   }
 
   /*
