@@ -22,6 +22,9 @@ class Follow extends React.Component {
   }
 
   render() {
+    if(!this.props.followee) {
+      return null;
+    }
     if(this.props.data.loading || !Meteor.user()) {
       return <div>Loading...</div>
     }

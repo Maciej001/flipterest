@@ -6,7 +6,9 @@ import Follow from './Follow.jsx';
 const FeedHeader = (props)=>(
   <div className="FeedHeader">
     <h1>{props.title}</h1>
-    <Follow followee={props.followee} />
+    {
+      props.followee ? <Follow followee={props.followee} /> : null
+    }
     <Account />
   </div>
 )
