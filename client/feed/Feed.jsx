@@ -41,8 +41,8 @@ const query = gql`
 `
 export default graphql(query, {
   options: ownProps => ({
+      pollInterval: 3000,
       variables: { handle: ownProps.params.handle},
-      //pollInterval: 1000,
     })
   }
 )(Feed);
