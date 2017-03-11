@@ -29,7 +29,7 @@ const Feed = (props)=>{
 }
 
 const query = gql`
-  query postsQuery($handle: String) {
+  query postsFeed($handle: String) {
     getPosts(handle: $handle) {
       _id
       handle
@@ -42,8 +42,8 @@ const query = gql`
 `
 export default graphql(query, {
   options: ownProps => ({
+      pollInterval: 3000,
       variables: { handle: ownProps.params.handle},
-      //pollInterval: 1000,
     })
   }
 )(Feed);

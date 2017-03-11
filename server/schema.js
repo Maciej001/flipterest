@@ -39,7 +39,7 @@ export default `
     addLike (
       userId: String!
       postId: String!
-    ): Post!
+    ): String!
 
     follow (
       followee: String!

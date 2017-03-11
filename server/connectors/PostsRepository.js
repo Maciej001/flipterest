@@ -44,7 +44,7 @@ class PostsRepository {
         $push: { likes: userId }
       })
     }
-    return post;
+    return userId;
   }
 
   /*
